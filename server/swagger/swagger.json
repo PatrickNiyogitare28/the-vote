@@ -476,6 +476,55 @@
             }
           ]
         }
+      },
+      "/api/v1/candidate/{id}/upload-profile-picture": {
+        "put": {
+          "tags": [
+            "Candidate"
+          ],
+          "summary": "",
+          "description": "",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "required": false,
+              "schema": {
+                "$ref": "#/definitions/Candidate"
+              }
+            }
+          ],
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "Created",
+              "schema": {
+                "$ref": "#/definitions/Candidate"
+              }
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          },
+          "security": [
+            {
+              "Bearer": [
+                "global"
+              ]
+            }
+          ]
+        }
       }
     },
     "definitions": {
@@ -532,7 +581,7 @@
           },
           "createdAt": {
             "type": "string",
-            "example": "7/8/2022, 12:40:09 PM"
+            "example": "7/8/2022, 2:37:46 PM"
           },
           "_id": {
             "type": "string",

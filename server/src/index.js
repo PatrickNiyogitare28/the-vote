@@ -7,8 +7,10 @@ import authRoutes from './routes/auth.routes'
 import votesRoutes from './routes/votes.routes'
 import candidateRoutes from './routes/candidate.routes'
 
+
 const app = express();
 
+app.use(express.urlencoded());
 app.use(express.json());
 app.use(cors())
 

@@ -3,6 +3,15 @@ import User  from "../database/models/user.model";
 import statusCodes from "../helpers/status-codes";
 import EUserType from "../enums/user-type";
 import { _userExists } from "./auth.controller";
+import { cloudinaryService } from "../helpers/cloudinary-uploader";
+import formidable from 'formidable';
+
+import cloudinary from '../configs/cloudinary';
+import cloudinaryUploader from '../helpers/cloudinary-uploader';
+
+const { imageUploader } = cloudinaryUploader;
+
+
 
 const {BAD_REQUEST, OK, CREATED, INTERNAL_SERVER_ERROR} = statusCodes;
 export const register = async (req, res) => {
@@ -47,6 +56,21 @@ export const getAllCandidates = async (req, res) => {
     return res.json({success: true, data}).status(OK);
 }
 
+export const uploadImageToCloudinary = async (req, res) => {
+   const { image }= req.body;
+   try{
+    const uploadedImage = await imageUploader(image);
+    let imageUrl = uploadedImage.secure_url;
+    return res.json({success: true, data: {imageUrl}}).status(OK);
+ 
+   }
+   catch(e){
+        console.log(e)
+         return res.json({success: false, message: "Error uploading image" }).status(INTERNAL_SERVER_ERROR)
+   }
+   
+}
+
 
 const _candidateExists = async (email) => {
     try{
@@ -58,3 +82,4 @@ const _candidateExists = async (email) => {
         return false;
     }
 }   
+
