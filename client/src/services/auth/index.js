@@ -3,11 +3,12 @@ import API_URL from '../../config/api-url';
 import * as SecureStorage from 'expo-secure-store'
 
 export const register = async (data) => {
-    return axios.post(API_URL+'/auth/signup', data)
+    return axios.post(API_URL+'/auth/voter/signup', data)
     .then((res) => {
         return res?.data
     })
     .catch((err) => {
+        console.log(err)
         return err?.response?.data;
     }
     )

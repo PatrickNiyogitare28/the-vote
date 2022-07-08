@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/v1/auth', authRoutes)
 app.use('/api/v1/votes', votesRoutes)
-app.use('/api/v1/candidate', candidateRoutes)
+app.use('/api/v1/candidates', candidateRoutes)
 
 const PORT = 5000;
 

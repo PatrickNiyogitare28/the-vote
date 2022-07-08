@@ -7,7 +7,7 @@ import tw from 'twrnc';
 import * as SecureStore from 'expo-secure-store';
 
 import Button from "../../../components/button";
-import { login } from "../../../services/auth";
+import { getProfile, login } from "../../../services/auth";
 import Input from "../../../components/input";
 
 const Login = ({ navigation }) => {
@@ -37,6 +37,10 @@ const Login = ({ navigation }) => {
     setLoading(false);
     if(!res?.success) return setAuthError(res?.message || "Something went wrong");
     await SecureStore.setItemAsync('token', res?.data?.token);
+    const profile = await getProfile();
+    if(!profile?.success) return setAuthError(profile?.message || "Something went wrong");
+
+    SecureStore.setItemAsync('profile', JSON.stringify(profile?.data?.user));
     navigation.navigate('Onboard');
   }
   
@@ -45,8 +49,8 @@ const Login = ({ navigation }) => {
         <View style={tw`h-[100%] bg-white  justify-end items-center`}>
         <View style={tw`h-[85%] w-full bg-white `}>
             <View style={tw`w-full`}>
-                <Text style={tw`text-center font-extrabold text-xl`}>SUPA STARTER</Text>
-                <Text style={tw`text-center font-extrabold text-xl`}>Login to continue</Text>
+                <Text style={tw`text-center font-extrabold text-xl`}>THE VOTER</Text>
+                <Text style={tw`text-center font-extrabold text-xl`}>Continue with your Account</Text>
             </View>
           
           {authError.length > 0 && <Text style={tw`mt-4 text-red-500 text-center`}>{authError}</Text>}
@@ -80,14 +84,14 @@ const Login = ({ navigation }) => {
             <View style={tw`mt-8`}>
             <Button
               mode={"contained"}
-              style={tw`bg-black w-full p-[10] mt-4`}
+              style={tw`bg-black w-full p-[4px] mt-4 rounded-[50px]`}
               onPress={handleSubmit}
             >
               {loading ? "Logging in ..." : "Login"}
             </Button>
             <Pressable onPress={() => navigation.navigate('Register')}>
             <View style={tw`mt-4`}>
-              <Text style={tw`text-xl underline text-gray-500`}>Have no account? Register</Text>
+              <Text style={tw`text-xl underline text-gray-500 text-sm`}>Have no account? Register</Text>
             </View>
             </Pressable>
             </View>

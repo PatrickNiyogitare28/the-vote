@@ -11,10 +11,6 @@ export const register = async (req, res) => {
     const userExists = await _userExists(email);
     if(userExists) return res.json({success: false, message:'User with the same email exists'}).status(BAD_REQUEST)
     
-    const candidateExists = await _candidateExists(email);
-    if(candidateExists) return res.json({success: false, message: 'Candidate with the same email exists'}).status(BAD_REQUEST)
-   
-
    let user;
    try{
         user = new User({ name, email, phone, address, user_type: EUserType.CANDIDATE, nationalId });
@@ -50,6 +46,8 @@ export const getAllCandidates = async (req, res) => {
     const data = await Candidate.find().populate('user');
     return res.json({success: true, data}).status(OK);
 }
+
+
 const _candidateExists = async (email) => {
     try{
         const candidate = await Candidate.findOne({email})
