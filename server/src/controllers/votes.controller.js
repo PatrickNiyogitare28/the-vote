@@ -5,8 +5,6 @@ import statusCodes from '../helpers/status-codes';
 const { BAD_REQUEST, OK, INTERNAL_SERVER_ERROR } = statusCodes;
 
 export const vote = async (req, res) => {
-    const user = req.user;
-    console.log(req.user)
     const { id } = req.params;
     const candidateExists = await _candidateExists(id);
 

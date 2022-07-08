@@ -40,7 +40,6 @@ export const register = async (req, res) => {
         await candidate.save();
     }
     catch(e){
-        console.log(e)
         return res.json({success: false, message: "Error creating candidate" }).status(INTERNAL_SERVER_ERROR)
     }
 
@@ -65,7 +64,6 @@ export const uploadImageToCloudinary = async (req, res) => {
  
    }
    catch(e){
-        console.log(e)
          return res.json({success: false, message: "Error uploading image" }).status(INTERNAL_SERVER_ERROR)
    }
    
