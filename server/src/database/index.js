@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-mongoose.connect('mongodb://localhost:27017/supa-starter', {
+mongoose.connect('mongodb://localhost:27017/vote-app', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })

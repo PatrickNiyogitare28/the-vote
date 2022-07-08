@@ -18,6 +18,7 @@ const SignUp = ({ navigation }) => {
     email:'',
     password: ''
   }
+
   const validationSchema = Yup.object().shape({
     name: Yup.string().required('Name is required'),
     email: Yup.string().email("Invalid email").required('Email is required'),
@@ -29,7 +30,7 @@ const SignUp = ({ navigation }) => {
     validationSchema
   })
 
-  const { handleChange, handleBlur, values, errors, touched, isValid,getFieldProps } = formik;
+  const { handleChange, handleBlur, values, errors, touched } = formik;
 
   const handleSubmit = async () => {
     setLoading(true);

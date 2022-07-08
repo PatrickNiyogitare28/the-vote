@@ -1,0 +1,494 @@
+{
+  "swaggerDefinition": {
+    "swagger": "2.0",
+    "info": {
+      "title": "server",
+      "description": "server API Documentation",
+      "termsOfService": "http://swagger.io/terms/",
+      "contact": {
+        "name": "API Support",
+        "url": "http://www.swagger.io/support",
+        "email": "support@swagger.io"
+      },
+      "license": {
+        "name": "Apache 2.0",
+        "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+      },
+      "version": "1.0.0"
+    },
+    "host": "localhost:5008",
+    "basePath": "/",
+    "schemes": [
+      "http"
+    ],
+    "securityDefinitions": {
+      "Bearer": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header"
+      }
+    },
+    "paths": {
+      "/api/v1/auth/admin/signup": {
+        "post": {
+          "tags": [
+            "Auth"
+          ],
+          "summary": "",
+          "description": "",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Auth"
+              }
+            }
+          ],
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "Created",
+              "schema": {
+                "$ref": "#/definitions/Auth"
+              }
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          },
+          "security": [
+            {
+              "Bearer": [
+                "global"
+              ]
+            }
+          ]
+        }
+      },
+      "/api/v1/auth/voter/signup": {
+        "post": {
+          "tags": [
+            "Auth"
+          ],
+          "summary": "",
+          "description": "",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Auth"
+              }
+            }
+          ],
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "Created",
+              "schema": {
+                "$ref": "#/definitions/Auth"
+              }
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          },
+          "security": [
+            {
+              "Bearer": [
+                "global"
+              ]
+            }
+          ]
+        }
+      },
+      "/api/v1/auth/login": {
+        "post": {
+          "tags": [
+            "Auth"
+          ],
+          "summary": "",
+          "description": "",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Auth"
+              }
+            }
+          ],
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "Created",
+              "schema": {
+                "$ref": "#/definitions/Auth"
+              }
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          },
+          "security": [
+            {
+              "Bearer": [
+                "global"
+              ]
+            }
+          ]
+        }
+      },
+      "/api/v1/auth/profile": {
+        "get": {
+          "tags": [
+            "Auth"
+          ],
+          "summary": "",
+          "description": "",
+          "parameters": [],
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Auth"
+                }
+              }
+            },
+            "500": {
+              "description": "Internal Server Error",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "error": {
+                    "type": "string",
+                    "example": "Internal Server Error"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "Bearer": [
+                "global"
+              ]
+            }
+          ]
+        }
+      },
+      "/api/v1/votes/candidate/{id}": {
+        "post": {
+          "tags": [
+            "Votes"
+          ],
+          "summary": "",
+          "description": "",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Votes"
+              }
+            }
+          ],
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "Created",
+              "schema": {
+                "$ref": "#/definitions/Votes"
+              }
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          },
+          "security": [
+            {
+              "Bearer": [
+                "global"
+              ]
+            }
+          ]
+        },
+        "get": {
+          "tags": [
+            "Votes"
+          ],
+          "summary": "",
+          "description": "",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Votes"
+                }
+              }
+            },
+            "500": {
+              "description": "Internal Server Error",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "error": {
+                    "type": "string",
+                    "example": "Internal Server Error"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "Bearer": [
+                "global"
+              ]
+            }
+          ]
+        }
+      },
+      "/api/v1/candidate/register": {
+        "post": {
+          "tags": [
+            "Candidate"
+          ],
+          "summary": "",
+          "description": "",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Candidate"
+              }
+            }
+          ],
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "Created",
+              "schema": {
+                "$ref": "#/definitions/Candidate"
+              }
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          },
+          "security": [
+            {
+              "Bearer": [
+                "global"
+              ]
+            }
+          ]
+        }
+      },
+      "/api/v1/candidate": {
+        "get": {
+          "tags": [
+            "Candidate"
+          ],
+          "summary": "",
+          "description": "",
+          "parameters": [],
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Candidate"
+                }
+              }
+            },
+            "500": {
+              "description": "Internal Server Error",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "error": {
+                    "type": "string",
+                    "example": "Internal Server Error"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "Bearer": [
+                "global"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "definitions": {
+      "Auth": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "string"
+          },
+          "email": {
+            "type": "string",
+            "example": "string"
+          },
+          "phone": {
+            "type": "string",
+            "example": "string"
+          },
+          "nationalId": {
+            "type": "string",
+            "example": "string"
+          },
+          "address": {
+            "type": "string",
+            "example": "string"
+          },
+          "password": {
+            "type": "string",
+            "example": "string"
+          },
+          "user_type": {
+            "type": "string",
+            "example": "string"
+          },
+          "_id": {
+            "type": "string",
+            "example": "507f1f77bcf86cd799439011",
+            "required": true
+          }
+        }
+      },
+      "Votes": {
+        "type": "object",
+        "properties": {
+          "voter": {
+            "type": "string",
+            "example": "507f1f77bcf86cd799439011",
+            "required": true
+          },
+          "candidate": {
+            "type": "string",
+            "example": "507f1f77bcf86cd799439011",
+            "required": true
+          },
+          "createdAt": {
+            "type": "string",
+            "example": "7/8/2022, 10:47:58 AM"
+          },
+          "_id": {
+            "type": "string",
+            "example": "507f1f77bcf86cd799439011",
+            "required": true
+          }
+        }
+      },
+      "Candidate": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "example": "507f1f77bcf86cd799439011",
+            "required": true
+          },
+          "gender": {
+            "type": "string",
+            "example": "string"
+          },
+          "profilePicture": {
+            "type": "string",
+            "example": "string"
+          },
+          "missionStatement": {
+            "type": "string",
+            "example": "string"
+          },
+          "votes": {
+            "type": "number",
+            "example": 0
+          },
+          "_id": {
+            "type": "string",
+            "example": "507f1f77bcf86cd799439011",
+            "required": true
+          }
+        }
+      }
+    }
+  },
+  "apis": []
+}
