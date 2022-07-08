@@ -14,7 +14,6 @@ const Onboard = ({ navigation }) => {
 
   const getUserProfile = async () => {
     const profile = JSON.parse(await SecureStore.getItemAsync('profile'))
-    console.log(profile)
     setName(profile?.name)
   }
   useEffect(() => {
@@ -25,7 +24,6 @@ const Onboard = ({ navigation }) => {
   const getAllCandidates = async () => {
     const res = await getAll();
     if(res?.success){
-      console.log(res.data)
       setCandidates(res?.data)
     }
   }

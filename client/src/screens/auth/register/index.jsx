@@ -49,10 +49,10 @@ const SignUp = ({ navigation }) => {
   
 
     return (
-       <ScrollView>
-        <View style={tw`h-[100%] bg-white  justify-end items-center`}>
-        <View style={tw`h-[100%] bg-white w-full bg-white`}>
-            <View style={tw`w-full mt-12`}>
+        <View style={tw`h-full  bg-white  justify-end items-center`}>
+        <ScrollView style={tw`w-full`}>
+        <View style={tw`h-full bg-white w-full bg-white`}>
+            <View style={tw`w-full mt-14`}>
                 <Text style={tw`text-center font-extrabold text-xl`}>THE VOTE</Text>
                 <Text style={tw`text-center font-extrabold text-xl mt-2`}>Create Voter Account</Text>
             </View>
@@ -148,8 +148,8 @@ const SignUp = ({ navigation }) => {
           </View>
           </View>
       </View>
+      </ScrollView>
         </View>
-       </ScrollView>
 
     )
 }

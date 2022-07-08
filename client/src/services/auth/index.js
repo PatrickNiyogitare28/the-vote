@@ -8,7 +8,6 @@ export const register = async (data) => {
         return res?.data
     })
     .catch((err) => {
-        console.log(err)
         return err?.response?.data;
     }
     )

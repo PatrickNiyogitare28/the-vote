@@ -11,8 +11,6 @@ const CandidateProfile = () => {
 
    const getProfileData = async () => {
     const profile = JSON.parse(await SecureStore.getItemAsync('candidateProfile'))
-    console.log("Profile .... ")
-    console.log(profile)
     setData(profile);
    }
     return (
