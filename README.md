@@ -1,8 +1,12 @@
-## supa-starter
-An academic challenge to build a full stack react native expo and nodejs app.
+## the-vote
 
-The app implements authentication. APi build with nodejs and mongodb. The client is build with react native
+The academic challenge to implement a full stack mobile voting application.
 
+## The scope
+
+- Building a mobile app
+- Building restfull API
+- Services integration
 
 ## server
 
@@ -38,7 +42,7 @@ $ expo start
 
 ## Preview
 
-![register](https://github.com/PatrickNiyogitare28/supa-starter/blob/master/client/assets/register.png?raw=true)
-
-![login](https://github.com/PatrickNiyogitare28/supa-starter/blob/master/client/assets/login.png?raw=true)
-![onboard](https://github.com/PatrickNiyogitare28/supa-starter/blob/master/client/assets/onboard.png?raw=true)
+![register](https://github.com/PatrickNiyogitare28/the-vote/blob/master/client/assets/register-screen.png?raw=true)
+![login](https://github.com/PatrickNiyogitare28/the-vote/blob/master/client/assets/login-screen.png?raw=true)
+![onboard](https://github.com/PatrickNiyogitare28/the-vote/blob/master/client/assets/vote-screen.png?raw=true)
+![candidate info](https://github.com/PatrickNiyogitare28/the-vote/blob/master/client/assets/candidate-info-screen.png?raw=true)
